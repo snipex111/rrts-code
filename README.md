@@ -16,9 +16,9 @@ CD over to the project folder in the terminal then, type in the following comman
     ABHISHEK,ABHISHEK
     Citizen 1, Citizen 1
     
-    Inspector Account:
+    Supervisor Account:
     
-    Inspector 1, Inspector 1
+    Supervisor 1, Supervisor 1
     
     Work Crew Accounts:
     

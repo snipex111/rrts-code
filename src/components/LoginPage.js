@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+
+
 const LoginPage = (props) => {
 	const [userName, setUserName] = useState("");
 	const [pwd, setPwd] = useState("");
@@ -34,8 +36,15 @@ const LoginPage = (props) => {
 			>
 				Login
 			</div>
+			<div className="btn">
+      <a href="/">
+        Home
+      </a>
+    </div>
+			
 		</div>
 	);
 };
+
 
 export default LoginPage;

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Inspector = ({
+const Supervisor = ({
 	id,
 	name,
 	potholes,
@@ -15,11 +15,11 @@ const Inspector = ({
 	const [crewId, setCrewId] = useState("");
 
 	return (
-		<div className="inspector">
+		<div className="Supervisor">
 			<div className="top badge">
 				<h2 className="name">{name}</h2>
 				<h5 className="role">
-					Inspector <span className="id">{id}</span>
+					Supervisor <span className="id">{id}</span>
 				</h5>
 				<div className="btn logout" onClick={() => logout()}>
 					Logout
@@ -177,4 +177,4 @@ const Inspector = ({
 	);
 };
 
-export default Inspector;
+export default Supervisor;

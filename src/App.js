@@ -5,7 +5,7 @@ import Admin from "./components/Admin";
 import LoginPage from "./components/LoginPage";
 import Citizen from "./components/Citizen";
 import { v4 as uuidv4 } from "uuid";
-import Inspector from "./components/Inspector";
+import Supervisor from "./components/Supervisor";
 import Crew from "./components/Crew";
 import Mayor from "./components/Mayor";
 
@@ -54,10 +54,10 @@ function App() {
 		},
 		{
 			id: uuidv4(),
-			userName: "Inspector 1",
-			password: "Inspector 1",
-			name: "Inspector 1",
-			role: "inspector",
+			userName: "Supervisor 1",
+			password: "Supervisor 1",
+			name: "Supervisor 1",
+			role: "Supervisor",
 		},
 		{
 			id: uuidv4(),
@@ -114,7 +114,7 @@ function App() {
 
 		if (page === 4)
 			return (
-				<Inspector
+				<Supervisor
 					id={user.id}
 					name={user.name}
 					potholes={potholes}
@@ -179,7 +179,7 @@ function App() {
 				if (user.role === "citizen") {
 					setPage(2);
 				}
-				if (user.role === "inspector") {
+				if (user.role === "Supervisor") {
 					setPage(4);
 				}
 
@@ -331,3 +331,4 @@ function App() {
 }
 
 export default App;
+
