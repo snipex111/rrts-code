@@ -2,9 +2,10 @@ import { useState } from "react";
 
 
 
-const LoginPage = (props) => {
+const RegisterPage = (props) => {
 	const [userName, setUserName] = useState("");
 	const [pwd, setPwd] = useState("");
+	const [role, setRole] = useState("");
 	return (
 		<div className="loginPage">
 			<form action="/">
@@ -24,17 +25,25 @@ const LoginPage = (props) => {
 						setPwd(event.target.value);
 					}}
 				/>
-				{props.loginError && (
-					<div className="loginError">User not found!</div>
+				<input
+					className="userName loginInfo"
+					type="text"
+					placeholder="Role"
+					onChange={(event) => {
+						setRole(event.target.value);
+					}}
+				/>
+				{props.registerError && (
+					<div className="loginError">User aleady registered</div>
 				)}
 			</form>
 			<div
 				className="btn"
 				onClick={() => {
-					props.handleLogin(userName, pwd);
+					props.handleRegister(userName, pwd,role);
 				}}
 			>
-				Login
+				Register
 			</div>
 			<div
 				className="btn"
@@ -42,7 +51,7 @@ const LoginPage = (props) => {
 					props.setpage(0);
 				}}
 			>
-				Home
+				Login
 			</div>
 			
 		</div>
@@ -50,4 +59,4 @@ const LoginPage = (props) => {
 };
 
 
-export default LoginPage;
+export default RegisterPage;

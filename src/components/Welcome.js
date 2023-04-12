@@ -1,4 +1,4 @@
-const Welcome = ({ setPage, showLoginPage }) => {
+const Welcome = ({ setPage, showLoginPage,showRegisterPage }) => {
 	return (
 		<div className="welcomeDiv">
 			<h2 className="welcome">Welcome!</h2>
@@ -10,6 +10,9 @@ const Welcome = ({ setPage, showLoginPage }) => {
 			</p>
 			<div className="btn" onClick={() => showLoginPage(setPage)}>
 				Login
+			</div>
+			<div className="btn" onClick={() => showRegisterPage(setPage)}>
+				Register
 			</div>
 			<img
 				src={require("./ucd.png")}

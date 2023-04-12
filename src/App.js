@@ -8,6 +8,7 @@ import { v4 as uuidv4 } from "uuid";
 import Supervisor from "./components/Supervisor";
 import Crew from "./components/Crew";
 import Mayor from "./components/Mayor";
+import RegisterPage from "./components/RegisterPage";
 
 function App() {
 	const [page, setPage] = useState(0);
@@ -86,20 +87,26 @@ function App() {
 		});
 		setPage(2);
 	};
+	function setThePage(page){
+		setPage(page);
+	}
 
 	const [loginError, setLoginError] = useState(false);
+	const [registerError, setRegisterError] = useState(false);
 
 	function Display({ page, setPage }) {
 		if (page === 0)
-			return <Welcome showLoginPage={showLoginPage} setPage={setPage} />;
+			return <Welcome showLoginPage={showLoginPage} showRegisterPage={showRegisterPage} setPage={setPage} />;
 		if (page === 1)
 			return (
 				<LoginPage
 					handleLogin={handleLogin}
 					loginError={loginError}
 					setLoginError={setLoginError}
+					setpage={setThePage}
 				/>
 			);
+		
 
 		if (page === 2)
 			return (
@@ -162,6 +169,16 @@ function App() {
 					logout={logout}
 				/>
 			);
+			if (page === 11)
+			return (
+				// <div>register</div>
+				<RegisterPage
+					handleRegister={handleRegister}
+					RegisterError={registerError}
+					setRegisterError={setRegisterError}
+					setpage={setThePage}
+				/>
+			);
 	}
 
 	const logout = () => {
@@ -179,7 +196,7 @@ function App() {
 				if (user.role === "citizen") {
 					setPage(2);
 				}
-				if (user.role === "Supervisor") {
+				if (user.role === "supervisor") {
 					setPage(4);
 				}
 
@@ -196,8 +213,59 @@ function App() {
 		if (!userValid) window.alert("User not found!");
 	}
 
+	function handleRegister(userName, password,role) {
+		let userExists = false;
+		users.forEach((user) => {
+			if (user.name === userName && user.password === password) {
+				userExists=true;
+				return ;
+			}
+		});
+
+		// show user not found error! on the login page
+		if (userExists)
+		{ window.alert("User already exists!");
+	      
+	    }
+		else
+		{
+		const user2={
+			id: uuidv4(),
+			userName: userName,
+			password: password,
+			name: userName,
+			role: role,
+		}
+		addUser(user2);
+		setUser(user2);
+		if (user.role === "citizen") {
+			setPage(2);
+		}
+		if (user.role === "supervisor") {
+			setPage(4);
+		}
+
+		if (user.role === "crew") setPage(6);
+
+		if (user.role === "admin") setPage(8);
+
+		if (user.role === "mayor") setPage(10);
+	    }
+		return;
+
+	}
+	function addUser(user){
+		const newUserList=users;
+		newUserList.push(user);
+		setUsers(newUserList);
+		console.log(users);
+	}
+
 	function showLoginPage(setPage) {
 		setPage(1);
+	}
+	function showRegisterPage(setPage){
+		setPage(11);
 	}
 
 	const denyRequest = (id) => {
@@ -331,4 +399,3 @@ function App() {
 }
 
 export default App;
-
