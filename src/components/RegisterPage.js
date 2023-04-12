@@ -51,7 +51,7 @@ const RegisterPage = (props) => {
 					props.setpage(0);
 				}}
 			>
-				Login
+				Home
 			</div>
 			
 		</div>
