@@ -30,9 +30,9 @@ function App() {
 		},
 		{
 			id: uuidv4(),
-			userName: "Admin 1",
-			password: "Admin 1",
-			name: "Admin 1",
+			userName: "Admin",
+			password: "Admin",
+			name: "Admin",
 			role: "admin",
 		},
 		{
@@ -196,7 +196,7 @@ function App() {
 				if (user.role === "citizen") {
 					setPage(2);
 				}
-				if (user.role === "supervisor") {
+				if (user.role === "Supervisor") {
 					setPage(4);
 				}
 
@@ -238,10 +238,11 @@ function App() {
 		}
 		addUser(user2);
 		setUser(user2);
+		console.log(user);
 		if (user.role === "citizen") {
 			setPage(2);
 		}
-		if (user.role === "supervisor") {
+		if (user.role === "Supervisor") {
 			setPage(4);
 		}
 

@@ -25,14 +25,16 @@ const RegisterPage = (props) => {
 						setPwd(event.target.value);
 					}}
 				/>
-				<input
-					className="userName loginInfo"
-					type="text"
-					placeholder="Role"
-					onChange={(event) => {
+				<select onChange={(event) => {
 						setRole(event.target.value);
-					}}
-				/>
+					}} className="userName loginInfo"
+				  >
+  <option selected="">Please Select Role</option>
+  <option>crew</option>
+  <option>citizen</option>
+  <option>mayor</option>
+  <option>Supervisor</option>
+</select>
 				{props.registerError && (
 					<div className="loginError">User aleady registered</div>
 				)}
