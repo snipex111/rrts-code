@@ -43,8 +43,8 @@ body {
 }
 
 img {
-  border: 3px solid #FF2E63;
-  border-radius: 5px;
+  border: 1px solid;
+  border-radius: 20px;
 }
 
 .btn:hover {

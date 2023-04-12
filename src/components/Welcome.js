@@ -14,7 +14,7 @@ const Welcome = ({ setPage, showLoginPage }) => {
 			<img
 				src={require("./ucd.png")}
 				alt=""
-				style={{ width: "100%", display: "block", margin: "20px auto" }}
+				style={{ width: "40%", display: "block", margin: "20px auto" }}
 			/>
 		</div>
 	);
